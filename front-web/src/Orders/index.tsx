@@ -6,6 +6,8 @@ import ProductsList from './ProductsList';
 import StepsHeader from './StepsHeader';
 import './styles.css';
 import { OrderLocationData, Product } from './types';
+import OrderSummary from './OrderSummary';
+import Footer from '../Footer';
 
 function Orders() {
 
@@ -19,11 +21,15 @@ function Orders() {
   }, []);
 
   return (
-    <div className="orders-container">
-      <StepsHeader />
-      <ProductsList products={products}/>
-      <OrderLocation onChangeLocation={location => setOrderLocation(location)}/>
-    </div>
+    <>
+      <div className="orders-container">
+        <StepsHeader />
+        <ProductsList products={products} />
+        <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
+        <OrderSummary />
+      </div>
+      <Footer />
+    </>
   )
 }
 
